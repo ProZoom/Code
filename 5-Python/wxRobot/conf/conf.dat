@@ -1,0 +1,16 @@
+[login]
+get_uuid_url = https://login.weixin.qq.com/jslogin?appid=wx782c26e4c19acffb&redirect_uri=https%3A%2F%2Fwx.qq.com%2Fcgi-bin%2Fmmwebwx-bin%2Fwebwxnewloginpage&fun=new&lang=zh_CN&_=%s
+get_qrcode_url = https://login.weixin.qq.com/qrcode/%s
+scan_qrcode_url = https://login.weixin.qq.com/cgi-bin/mmwebwx-bin/login?loginicon=true&tip=%s&r=-%s&uuid=%s&_=%s
+init_wechat_url = https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit?r=%s&lang=zh_CN&pass_ticket=%s
+status_notify_url = https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxstatusnotify?lang=zh_CN&pass_ticket=%s
+get_all_contact_url = https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact?lang=zh_CN&pass_ticket=%s&r=%s&seq=0&skey=%s
+sync_check_url = https://webpush.wx.qq.com/cgi-bin/mmwebwx-bin/synccheck?r=%s&skey=%s&sid=%s&uin=%s&deviceid=%s&synckey=%s&_=%s
+msg_sync_url = https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsync?sid=%s&skey=%s&pass_ticket=%s
+send_message_url = https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsendmsg
+
+[tuling]
+open_api = http://www.tuling123.com/openapi/api
+api_key = 53b880e6b3444e9b9313035d05cd6c57
+
+
