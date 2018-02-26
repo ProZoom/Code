@@ -1,3 +1,5 @@
+
+
 function printf(str) {
     var hint = document.getElementById("hint1"); //根据id获取元素
     hint.innerText += str.toString() + "\n"; //设置label显示的文字，也可以自动调用其他js文件中的hint变量
