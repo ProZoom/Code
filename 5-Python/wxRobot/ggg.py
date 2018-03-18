@@ -1,7 +1,11 @@
 # coding=utf-8
+#%%
+
 from __future__ import print_function
-import shutil
+
 import os.path
+import shutil
+
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
@@ -94,7 +98,8 @@ biases = {
 pred = conv_net(x, weights, biases, keep_prob)
 
 # Define loss and optimizer
-cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y))
+cost = tf.reduce_mean(
+    tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y))
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 # Evaluate model
@@ -119,14 +124,14 @@ with tf.Session() as sess:
             loss, acc = sess.run([cost, accuracy], feed_dict={x: batch_x,
                                                               y: batch_y,
                                                               keep_prob: 1.})
-            print("Iter " + str(step * batch_size) + ", Minibatch Loss= " + \
-                  "{:.6f}".format(loss) + ", Training Accuracy= " + \
+            print("Iter " + str(step * batch_size) + ", Minibatch Loss= " +
+                  "{:.6f}".format(loss) + ", Training Accuracy= " +
                   "{:.5f}".format(acc))
         step += 1
     print("Optimization Finished!")
 
     # Calculate accuracy for 256 mnist test images
-    print("Testing Accuracy:", \
+    print("Testing Accuracy:",
           sess.run(accuracy, feed_dict={x: mnist.test.images[:256],
                                         y: mnist.test.labels[:256],
                                         keep_prob: 1.}))
@@ -174,7 +179,8 @@ with g.as_default():
     sess.run(init)
 
     graph_def = g.as_graph_def()
-    tf.train.write_graph(graph_def, EXPORT_DIR, 'mnist_model_graph.pb', as_text=False)
+    tf.train.write_graph(graph_def, EXPORT_DIR,
+                         'mnist_model_graph.pb', as_text=False)
 
     # Test trained model
     y_train = tf.placeholder("float", [None, 10])
@@ -182,4 +188,4 @@ with g.as_default():
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 
     print("check accuracy %g" % accuracy.eval(
-            {x_2: mnist.test.images, y_train: mnist.test.labels}, sess))
+        {x_2: mnist.test.images, y_train: mnist.test.labels}, sess))
